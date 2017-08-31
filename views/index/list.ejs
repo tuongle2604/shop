@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+	ustora by freshdesignweb.com
+	Twitter: https://twitter.com/freshdesignweb
+	URL: https://www.freshdesignweb.com/ustora/
+-->
+<html lang="en">
+
+<% include head.ejs %>
+
+  <body>
+
+    <% include header.ejs %>
+
+
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>List</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+              <% for(var i=0;i<data.length;i++){
+                %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                            <img src="<%=data[i].img%>" alt="">
+                        </div>
+                        <h2><a href="/dien-thoai/<%=data[i].name%>"><%=data[i].name%></a></h2>
+                        <div class="product-carousel-price">
+                            <ins><%=data[i].price%></ins>
+                        </div>
+
+                        <div class="product-option-shop">
+                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" >Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <%
+              }
+              %>
+
+            </div>
+
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="product-pagination text-center">
+                          <nav>
+                            <ul class="pagination">
+                              <% if(currentPage>1){
+                                %>
+                                <li>
+                                  <a href="./<%=currentPage-1%>" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                  </a>
+                                </li>
+                                <%
+                              }
+                                  for(var j=0;j<pageCount;j++){
+                                    if(j==currentPage-1){
+                                      %> <li><a href="./<%=j+1%>" style="background-color:black;"><%=j+1%></a></li> <%
+                                    }else{
+                                      %> <li><a href="./<%=j+1%>"><%=j+1%></a></li> <%
+                                    }
+                                  }
+
+                               if(currentPage<pageCount){
+                                 %>
+                                 <li>
+                                   <a href="./<%=++currentPage%>" aria-label="Next">
+                                     <span aria-hidden="true">&raquo;</span>
+                                   </a>
+                                 </li>
+                                 <%
+                               }
+                               %>
+                            </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+
+        </div>
+    </div>
+
+    <% include footer.ejs %>
+
+    <!-- Latest jQuery form server -->
+    <script src="/index/javascripts/cartIcon.js" charset="utf-8"></script>
+
+  </body>
+</html>

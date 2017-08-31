@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+	ustora by freshdesignweb.com
+	Twitter: https://twitter.com/freshdesignweb
+	URL: https://www.freshdesignweb.com/ustora/
+-->
+  <% include head.ejs %>
+  <body>
+
+
+  <% include header.ejs %>
+
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="product-carousel">
+                        <% for (var i=0;i<data.length;i++){
+                            %>
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="<%=data[i].img%>" alt="">
+                                    <div class="product-hover">
+                                        <a class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="<%=data[i].link%>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+
+                                <h2><a href="<%=data[i].link%> " product-id='<%=data[i].id%>'><%=data[i].name%></a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins><%=data[i].price%> $</ins>
+                                </div>
+                            </div>
+                            <%
+                          }
+                        %>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End main content area -->
+
+    <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <div class="brand-list">
+                            <img src="/index/img/brand1.png" alt="">
+                            <img src="/index/img/brand2.png" alt="">
+                            <img src="/index/img/brand3.png" alt="">
+                            <img src="/index/img/brand4.png" alt="">
+                            <img src="/index/img/brand5.png" alt="">
+                            <img src="/index/img/brand6.png" alt="">
+                            <img src="/index/img/brand1.png" alt="">
+                            <img src="/index/img/brand2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End brands area -->
+
+    <% include footer.ejs %>
+
+    <!-- slide -->
+    <!-- <script type="text/javascript" src="js/bxslider.min.js"></script>
+    <script type="text/javascript" src="js/script.slider.js"></script> -->
+    <script src="/index/javascripts/carticon.js" charset="utf-8"></script>
+
+  </body>
+</html>

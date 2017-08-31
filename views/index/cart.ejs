@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--
+	ustora by freshdesignweb.com
+	Twitter: https://twitter.com/freshdesignweb
+	URL: https://www.freshdesignweb.com/ustora/
+-->
+<html lang="en">
+<% include head.ejs %>
+<link rel="stylesheet" href="/index/css/cssCart.css">
+  <body>
+
+
+
+      <div class="header-area">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8">
+                      <div class="user-menu">
+                          <ul>
+                              <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                              <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                              <li><a href="/cart"><i class="fa fa-user"></i> My Cart</a></li>
+                              <li><a href="/checkout"><i class="fa fa-user"></i> Checkout</a></li>
+                              <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="header-right">
+                          <ul class="list-unstyled list-inline">
+                              <li class="dropdown dropdown-small">
+                                  <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#">USD</a></li>
+                                      <li><a href="#">INR</a></li>
+                                      <li><a href="#">GBP</a></li>
+                                  </ul>
+                              </li>
+
+                              <li class="dropdown dropdown-small">
+                                  <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#">English</a></li>
+                                      <li><a href="#">French</a></li>
+                                      <li><a href="#">German</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- End header area -->
+
+      <div class="mainmenu-area">
+          <div class="container">
+              <div class="row">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                  </div>
+                  <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/list/1">Shop page</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a onclick="myFunction()" class="dropbtn">Category</a>
+                          <div id="myDropdown" class="dropdown-content" style="background-color:#f9f9f9;">
+                            <a href="/theloai/iphone/1">iphone</a>
+                            <a href="/theloai/samsung/1">samsung</a>
+                            <a href="/theloai/oppo/1">oppo</a>
+                          </div></li>
+
+                        <li><a href="#" id="myBtn">Compare</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- End mainmenu area -->
+
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" >&times;</span>
+          <div id="search">
+              <input id="searchInput" type="text" name="" placeholder="Nhập tên sản phẩm để tìm kiếm" value="">
+              <button type="button" name="button" onclick="getData()">search</button>
+          </div>
+
+          <div class="container">
+              <div id="display" class="row">
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Shopping Cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Page title area -->
+
+
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row" style="">
+                <div class="col-md-6">
+                  <div class="cart_totals">
+                      <h2>Cart Totals</h2>
+
+                      <table cellspacing="0">
+                          <tbody>
+                              <tr class="order-total">
+                                  <th>Order Total</th>
+                                  <td><strong><span id="total_amount" class="amount"></span></strong> </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <h4>Chọn hình thức thanh toán</h4>
+                  <form class="form-test"  action="/payment" method="post">
+                    <ul class="list-content">
+                      <li class="active">
+                        <label><input type="radio" value="NL" name="option_payment" selected="true">Thanh toán khi nhận hàng</label>
+                      </li>
+                      <!-- <li>
+                        <label><input type="radio" value="IB_ONLINE" name="option_payment">Thanh toán bằng IB</label>
+                        <div class="boxContent">
+                          <p><i>
+                              <span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">Lưu ý</span>: Bạn cần đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến tại ngân hàng trước khi thực hiện.</i></p>
+
+                          <ul class="cardList clearfix">
+                            <li class="bank-online-methods ">
+                              <label for="vcb_ck_on">
+                                <i class="BIDV" title="Ngân hàng TMCP Đầu tư &amp; Phát triển Việt Nam"></i>
+                                <input type="radio" value="BIDV"  name="bankcode" >
+
+                              </label></li>
+                            <li class="bank-online-methods ">
+                              <label for="vcb_ck_on">
+                                <i class="VCB" title="Ngân hàng TMCP Ngoại Thương Việt Nam"></i>
+                                <input type="radio" value="VCB"  name="bankcode" >
+
+                              </label></li>
+
+                            <li class="bank-online-methods ">
+                              <label for="vnbc_ck_on">
+                                <i class="DAB" title="Ngân hàng Đông Á"></i>
+                                <input type="radio" value="DAB"  name="bankcode" >
+
+                              </label></li>
+
+                            <li class="bank-online-methods ">
+                              <label for="tcb_ck_on">
+                                <i class="TCB" title="Ngân hàng Kỹ Thương"></i>
+                                <input type="radio" value="TCB"  name="bankcode" >
+
+                              </label></li>
+
+
+                          </ul>
+
+                        </div>
+                      </li> -->
+                      <li>
+                        <label><input type="radio" value="VISA" name="option_payment" selected="true">Thanh toán bằng thẻ Visa hoặc MasterCard</label>
+                        <!-- <div class="boxContent">
+                          <p><span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">Lưu ý</span>:Visa hoặc MasterCard.</p>
+                          <ul class="cardList clearfix">
+                              <li class="bank-online-methods ">
+                                <label for="vcb_ck_on">
+                                  Visa:
+                                  <input type="radio" value="VISA"  name="bankcode" >
+
+                              </label></li>
+
+                              <li class="bank-online-methods ">
+                                <label for="vnbc_ck_on">
+                                  Master:<input type="radio" value="MASTER"  name="bankcode" >
+                              </label></li>
+                          </ul>
+                        </div> -->
+                      </li>
+                    </ul>
+                    <button type="submit" id="submit1" style="background: none repeat scroll 0 0 #5a88ca;border: medium none;color: #fff;padding: 11px 20px;text-transform: uppercase;">Thanh Toán</button>
+                  </form>
+
+                </div>
+
+                    <div class="col-md-6">
+                        <div class="product-content-right">
+                            <div class="woocommerce">
+                                <form method="post" action="#">
+                                    <table id="shoppingCart" cellspacing="0" class="shop_table cart">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-remove">&nbsp;</th>
+                                                <th class="product-thumbnail">&nbsp;</th>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-price">Price</th>
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-subtotal">Total</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <% include footer.ejs %>
+
+    <script src="/index/javascripts/cartpage.js" charset="utf-8"></script>
+    <script language="javascript">
+    $('input[name="option_payment"]').bind('click', function() {
+    $('.list-content li').removeClass('active');
+    $(this).parent().parent('li').addClass('active');
+    });
+      // // $('input[name="bankcode"]').bind('click', function() {
+      // // });
+      // $('.list-content input').on('change', function() {
+      //   alert($('input[name=bankcode]:checked', '.list-content').val());
+      // });
+      // $('#submit1').click(function(){
+      //   if(localStorage.getItem('cart')){
+      //     var payment = $('input[name=bankcode]:checked', '.list-content').val();
+      //     if(payment){
+      //         // $.post("/payment",
+      //         //     {
+      //         //       payment: payment
+      //         //     });
+      //         // alert(123)
+      //         var items = localStorage.getItem('cart');
+      //         var arrItems = [];
+      //         var arrCart = JSON.parse(retrievedObject);
+      //         arrCart.forEach(function(e){
+      //           var obj ={'id':e.id,'sl':e.sl}
+      //           arrItems.push(obj);
+      //         })
+      //         arrItems = JSON.stringify(arrItems);
+      //         var html  = `<input id="items" style="display:none;" type="text" name="items" value=${arrItems}>`;
+      //          $("#myForm").append(html);
+      //         $("#myForm").submit();
+      //     }else{
+      //       alert('bạn chưa chon phương thức thanh toán')
+      //     }
+      //   }else{
+      //     alert('không có sản phẩm nào');
+      //   }
+      // })
+
+  	</script>
+  </body>
+</html>

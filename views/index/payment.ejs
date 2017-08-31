@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Mondido.JS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://api.mondido.com/v2/mondido.js?merchant_id=3"> </script>
+        <script src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+        <script src="https://s3-eu-west-1.amazonaws.com/mondido/www/js/validator.js"> </script>
+        <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <title>Mondido.js</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+      <link rel="stylesheet" href="/payment/css/style.css">
+
+
+</head>
+
+<body>
+
+  <div class="container"  >
+    <% if (message.length > 0) { %>
+      <div class="" style="width:100%;">
+        <h2 style="text-align:center;"><%=message%></h2>
+      </div>
+    <% } %>
+    <div class="form-signin checkout_payment_option selected mondidojs">
+        <div class="container-bb">
+            <div class="row-bb">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form id="mondidopayform" action="/payment/handling" method="post">
+                        <div class="wrp">
+                            <div id="addCard">
+                                <div class="panel">
+                                    <h2>Card Payment, <span class="strong"></span></h2>
+                                    <div class="form-group col-lg-12">
+                                        <label>Card Holder Name</label>
+                                        <input type="text" class="form-control" name="card_holder" style="width:100%;" placeholder="Firstname Lastname">
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="col-sm-5 form-group">
+                                        <label>Card Number</label>
+                                        <input type="text" class="form-control" name="card_number" style="width:100%;" placeholder="4111111111111111">
+                                    </div>
+                                    <div class="col-sm-3 col-xs-6 form-group third float-left">
+                                        <label>CVV</label>
+                                        <input type="text" class="form-control" name="card_cvv" style="width:90%;" placeholder="000">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-3 form-group third float-left">
+                                        <label>Month</label>
+                                        <input type="text" name="expMM" class="form-control" maxlength="2" style="width:90%;" placeholder="01">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-3 form-group third float-left">
+                                        <label>Year</label>
+                                        <input type="text" name="expYY" class="form-control" maxlength="2" style="width:90%;" placeholder="15">
+                                    </div>
+                                </div>
+                                <div class="stripes bottom"> </div>
+
+                                <div class="clear">
+                                </div>
+
+                                <input type="button" value="Finish Payment" id="btnPay" class="btn_blue fullsize btn-primary mondidocheckout">
+                                <div>
+                                    <div id="credit-card-list">
+                                        <img alt="Mastercard" class="card_mastercard card_icon" src="https://raw.githubusercontent.com/Mondido/mondido-js/master/images/mastercard.png">
+                                        <img alt="Visa" class="card_visa card_icon" src="https://raw.githubusercontent.com/Mondido/mondido-js/master/images/visa.png">
+                                        <img alt="Amex"  class="card_amex card_icon" src="https://raw.githubusercontent.com/Mondido/mondido-js/master/images/amex.png">
+                                        <img alt="Discover" class="card_discover card_icon" src="https://raw.githubusercontent.com/Mondido/mondido-js/master/images/discover.png">
+                                        <img alt="Maestro" class="card_maestro  card_icon" src="https://raw.githubusercontent.com/Mondido/mondido-js/master/images/maestro.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- order data -->
+                            <input type="hidden" data-encrypted-attribute="card_type" value="" />
+                            <input type="hidden" data-encrypted-attribute="card_expiry" value=""/>
+                            <input type="hidden" name="items" value="" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="loadingmodal"></div>
+
+    <script src="/payment/js/index.js"></script>
+    <script src="/payment/js/payment.js" charset="utf-8"></script>
+</body>
+</html>

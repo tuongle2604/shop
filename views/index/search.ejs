@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+	ustora by freshdesignweb.com
+	Twitter: https://twitter.com/freshdesignweb
+	URL: https://www.freshdesignweb.com/ustora/
+-->
+<html lang="en">
+
+<% include head.ejs %>
+
+  <body>
+
+    <% include header.ejs %>
+
+
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Search</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+              <% if(data.length>0){
+                for(var i=0;i<data.length;i++){
+                  %>
+                  <div class="col-md-3 col-sm-6">
+                      <div class="single-shop-product">
+                          <div class="product-upper">
+                              <img src="<%=data[i].img%>" alt="">
+                          </div>
+                          <h2><a href=""><%=data[i].name%></a></h2>
+                          <div class="product-carousel-price">
+                              <ins><%=data[i].price%></ins>
+                          </div>
+
+                          <div class="product-option-shop">
+                              <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" >Add to cart</a>
+                          </div>
+                      </div>
+                  </div>
+                  <%
+                }
+              }else{
+                %><h2>khong tim thay san pham</h2><%
+              }
+
+              %>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <% include footer.ejs %>
+
+    <script src="/index/javascripts/cartIcon.js" charset="utf-8"></script>
+
+  </body>
+</html>

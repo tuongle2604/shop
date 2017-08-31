@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<% include head.ejs %>
+
+  <body>
+    <div id="wrapper">
+      <% include navbar.ejs %>
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+
+                      <h3>method : <span style="color:#0697e5;"><%=detail.method%></span></h3>
+                      <%
+                          if(detail.method=='visa'){
+                            %><h3>id : <span style="color:#0697e5;"><%=detail.id_paypal%></span></h3><%
+                          }
+                      %>
+                      <h3>date : <span style="color:#0697e5;"><%=detail.date%></span></h3>
+                      <h3>total : <span style="color:#0697e5;"><%=detail.total%> $</span></h3>
+                        <div class="page-header">
+                        </div>
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th style="padding-left:20px;">ID</th>
+                                        <th style="padding-left:20px;">img</th>
+                                        <th style="padding-left:20px;">name</th>
+                                        <th style="padding-left:20px;">price ($)</th>
+                                        <th style="padding-left:20px;">sl</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <%
+                                    if(data.length>0 || data==null){
+                                      for(var i=0;i<data.length;i++){
+                                       %>
+                                       <tr class="odd gradeX">
+                                           <td class="center" style="padding:40px 0px 20px 20px;" ><%=data[i].id%></td>
+                                           <td class="center" style="padding:40px 0px 20px 20px;">
+                                             <img style="width:70px;" src="<%=data[i].img%>" alt=""></td>
+                                           <td class="center" style="padding:40px 0px 20px 20px;"><a href="/admin/product/edit/<%=data[i].id%>"><%=data[i].name%></a></td>
+                                           <td class="center" style="padding:40px 0px 20px 20px;"><%=data[i].price%> </td>
+                                           <td class="center" style="padding:40px 0px 20px 20px;"><%=data[i].sl%></td>
+                                       </tr>
+                                       <%
+                                     }
+                                    }
+
+                                  %>
+                                </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+  </body>
+</html>

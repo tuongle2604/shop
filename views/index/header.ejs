@@ -1,0 +1,116 @@
+
+
+  <div class="header-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="user-menu">
+                      <ul>
+                          <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                          <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                          <li><a href="/cart"><i class="fa fa-user"></i> My Cart</a></li>
+                          <li><a href="/checkout"><i class="fa fa-user"></i> Checkout</a></li>
+                          <li><a href="/login"><i class="fa fa-user"></i> Login</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="col-md-4">
+                  <div class="header-right">
+                      <ul class="list-unstyled list-inline">
+                          <li class="dropdown dropdown-small">
+                              <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#">USD</a></li>
+                                  <li><a href="#">INR</a></li>
+                                  <li><a href="#">GBP</a></li>
+                              </ul>
+                          </li>
+
+                          <li class="dropdown dropdown-small">
+                              <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#">English</a></li>
+                                  <li><a href="#">French</a></li>
+                                  <li><a href="#">German</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> <!-- End header area -->
+
+  <div class="site-branding-area">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <div class="logo">
+                      <h1><a href="/"><img src="/index/img/logo.png"></a></h1>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="single-sidebar">
+                      <form action="/search" method="post">
+                          <input name="search" type="text" placeholder="Search products...">
+                          <input type="submit" value="Search">
+                      </form>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="shopping-item">
+                      <a id="cartIcon" href="/cart">Cart<span class="cart-amunt"></span><i class="fa fa-shopping-cart"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> <!-- End site branding area -->
+
+  <div class="mainmenu-area">
+      <div class="container">
+          <div class="row">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+              </div>
+              <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/list/1">Shop page</a></li>
+                      <li><a href="/cart">Cart</a></li>
+                      <li><a onclick="myFunction()" class="dropbtn">Category</a>
+                        <div id="myDropdown" class="dropdown-content" style="background-color:#f9f9f9;">
+                          <a href="/theloai/iphone/1">iphone</a>
+                          <a href="/theloai/samsung/1">samsung</a>
+                          <a href="/theloai/oppo/1">oppo</a>
+                        </div></li>
+
+                      <li><a href="#" id="myBtn">Compare</a></li>
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div> <!-- End mainmenu area -->
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" >&times;</span>
+      <div id="search">
+          <input id="searchInput" type="text" name="" placeholder="Nhập tên sản phẩm để tìm kiếm" value="">
+          <button type="button" name="button" onclick="getData()">search</button>
+      </div>
+
+      <div class="container">
+          <div id="display" class="row">
+          </div>
+      </div>
+    </div>
+  </div>

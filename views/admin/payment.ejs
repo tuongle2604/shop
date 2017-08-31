@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<% include head.ejs %>
+
+  <body>
+    <div id="wrapper">
+      <% include navbar.ejs %>
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Tables Page <small>Responsive tables</small>
+                        </h1>
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <form action="/admin/payment/status" method="post">
+                          <select name='status' required>
+                          <option value="all">ALL</option>
+                          <option value="seen">đã xem</option>
+                          <option value="notseen">chưa xem</option>
+                          </select>
+                          <button type="submit">search</button>
+                          </form>
+
+
+                        </div>
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                  <thead>
+                                      <tr>
+                                          <th style="padding-left:20px;">ID</th>
+                                          <th style="padding-left:20px;">method</th>
+                                          <th style="padding-left:20px;">total ($)</th>
+                                          <th style="padding-left:20px;">date</th>
+                                          <th style="padding-left:20px;">status</th>
+
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    <%
+                                      if(data.length>0 || data==null){
+                                        for(var i=0;i<data.length;i++){
+                                         %>
+                                         <tr class="odd gradeX">
+                                             <td class="center" style="padding:40px 0px 20px 20px;" ><%=data[i].id%></td>
+                                             <td class="center" style="padding:40px 0px 20px 20px;"><%=data[i].method%></td>
+                                             <td class="center" style="padding:40px 0px 20px 20px;"><%=data[i].total%> </td>
+                                             <td class="center" style="padding:40px 0px 20px 20px;"><%=data[i].date%></td>
+                                             <%
+                                                 if(data[i].status==1){
+                                                   %><td class="center" style="padding:40px 0px 20px 20px;">đã xem</td>  <%
+                                                 }else{
+                                                   %><td class="center" style="padding:40px 0px 20px 20px;">chưa xem</td>  <%
+                                                 }
+                                             %>
+                                             <td class="center" style="padding:20px;">
+                                               <div style="padding:10px;" >
+                                                 <a href="/admin/payment/detail/<%=data[i].id%>" stlye="margin:10px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> detail</a>
+                                               </div>
+                                               <div style="padding:10px;">
+                                                 <a href="/admin/payment/delete/<%=data[i].id%>" stlye="margin:10px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                                               </div>
+                                           </td>
+                                         </tr>
+                                         <%
+                                       }
+                                      }
+
+                                    %>
+                                  </tbody>
+                              </table>
+                          </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+
+  </body>
+</html>

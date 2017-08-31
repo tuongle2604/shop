@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<% include head.ejs %>
+
+  <body>
+    <div id="wrapper">
+      <% include navbar.ejs %>
+
+        <div id="page-wrapper" >
+            <div id="page-inner">
+       <div class="row">
+
+                    <div class="col-md-10 col-sm-10">
+                      <h1 style="margin-bottom:30px;margin-top:-10px;">Account</h1>
+                      <% if (message.length > 0) { %>
+                        <div class="alert alert-danger"><%= message %></div>
+                      <% } %>
+                      <form style="margin:10px;font-size:13px;" action="../edit" method="post" >
+                        <div class="" style="margin-bottom:10px;">
+                          <p style=""> email:<span style="margin-left:58px;width:200px;font-weight: bold;"><%=data.email%></span></p>
+                          <input type="text" name="id" value="<%=data.id%>" style="display:none;">
+                        </div>
+                        <div class="" style="margin-bottom:10px;">
+                          role:
+                          <select name="role" required style="margin-left:70px;font-size:15px;width:200px;padding:2px 0px 5px 3px;">
+                          <option value="customer">customer</option>
+                          <option value="partner">partner</option>
+                          <option value="admin">admin</option>
+                          </select>
+                        </div>
+                        <div class="" style="margin-bottom:10px;">
+                          password: <input style="margin-left:35px;width:200px;" type="password" name="password" value="">
+                        </div>
+                        <button type="submit" style="margin-top:30px;background:#5a88ca;border: medium none;color: #fff;padding: 11px 20px;text-transform: uppercase;">Submit</button>
+                      </form>
+
+                    </div>
+                </div>
+
+
+        </div>
+
+    </div>
+            </div>
+
+  </body>
+</html>
