@@ -20,7 +20,7 @@ module.exports = function(app,passport){
   });
 
   router.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/',
+    successRedirect : '/admin',
     failureRedirect : '/login',
     failureFlash : true
   }));
